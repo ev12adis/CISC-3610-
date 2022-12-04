@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Document</title>
+<style>
+button {
+    padding: 10px;
+    background-color: #6a67ce;
+    color: #FFFFFF;
+    border: 0px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+</style>
+</head>
+<body>
+<center>
+  <button id='btnGiveCommand' onClick="stoptext()">Speak</button>
+  <br>
+  <h4>Instructions</h4>
+  <p>• Say a name of the object to see the object on the screen </p>
+  <p>• Say "Help" To know how to use the program</p>
+  <p>• Say 'About', to hear about the program</p>
+  <span id='message'></span> <br>
+  <input id='chkdrone' type="checkbox">
+  DRONE
+  <input id='chkbench' type="checkbox">
+  BENCH
+  <input id='chkgold' type="checkbox">
+  GOLD
+  <input id='chkbulb' type="checkbox">
+  BULB
+  <input id='chkdice' type="checkbox">
+  DICE <br>
+  <br>
+  <img src="img/drone.jpg" alt="drone" width="800" height="600" id="drone" style="display:none;"> <img src="img/bench.jpg" alt="bench" width="800" height="600" id="bench" style="display:none;"> <img src="img/gold.jpg" alt="gold" width="800" height="600" id="gold" style="display:none;"> <img src="img/bulb.jpg" alt="bulb" width="800" height="600" id="bulb" style="display:none;"> <img src="img/dice.jpg" alt="dice" width="800" height="600" id="dice" style="display:none;">
+</center>
+<div>
+  <input type="hidden" id="text-to-speech" value="Say DRONE, BENCH, gold, BULB, or DICE
+    To view the object on screen"/>
+</div>
+<div>
+  <input type="hidden" id="text-to-about" value="VR"/>
+</div>
+<script>
+        var message = document.querySelector('#message');
+
+        var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
+        var SpeechGrammarList = SpeechGrammarList || webkitSpeechGrammarList;
+
+        var grammar = '#JSGF V1.0;';
+
+        var recognition = new SpeechRecognition();
+        var speechRecognitionList = new SpeechGrammarList();
+        speechRecognitionList.addFromString(grammar, 1);
+        recognition.grammars = speechRecognitionList;
+        recognition.lang = 'en-US';
+        recognition.interimResults = false;
+
+        recognition.onresult = function(event) {
+            var last = event.results.length - 1;
+            var command = event.results[last][0].transcript;
+            message.textContent = 'Voice Input: ' + command + '.';
+
+            if(command.toLowerCase() === 'drone'){
+                document.querySelector('#chkdrone').checked = true;
+                document.querySelector('#drone').style.display = "block";
+document.querySelector('#bench').style.display = "none";
+document.querySelector('#gold').style.display = "none";
+document.querySelector('#bulb').style.display = "none";
+document.querySelector('#dice').style.display = "none";
+            }
+            else if (command.toLowerCase() === 'bench'){
+                document.querySelector('#chkbench').checked = true;
+                document.querySelector('#bench').style.display = "block";
+document.querySelector('#gold').style.display = "none";
+document.querySelector('#bulb').style.display = "none";
+document.querySelector('#dice').style.display = "none";
+document.querySelector('#drone').style.display = "none";
+            }
+            else if (command.toLowerCase() === 'gold'){
+                document.querySelector('#chkgold').checked = true;
+                document.querySelector('#gold').style.display = "block";
+document.querySelector('#bulb').style.display = "none";
+document.querySelector('#dice').style.display = "none";
+document.querySelector('#drone').style.display = "none";
+   document.querySelector('#bench').style.display = "none";
+            }
+            else if (command.toLowerCase() === 'bulb'){
+                document.querySelector('#chkbulb').checked = true;
+                document.querySelector('#bulb').style.display = "block";
+document.querySelector('#dice').style.display = "none";
+document.querySelector('#drone').style.display = "none";
+   document.querySelector('#bench').style.display = "none";
+document.querySelector('#gold').style.display = "none";
+            }
+  else if (command.toLowerCase() === 'dice'){
+                document.querySelector('#chkdice').checked = true;
+                document.querySelector('#dice').style.display = "block";
+document.querySelector('#drone').style.display = "none";
+   document.querySelector('#bench').style.display = "none";
+document.querySelector('#gold').style.display = "none";
+document.querySelector('#bulb').style.display = "none";
+            }
+
+ else if (command.toLowerCase() === 'help'){
+                let msg = document.getElementById("text-to-speech").value;
+
+                let speech = new SpeechSynthesisUtterance();
+                speech.lang = "en-US";
+
+                speech.text = msg;
+                speech.volume = 1;
+                speech.rate = 1;
+                speech.pitch = 1;
+
+                window.speechSynthesis.speak(speech);
+            }
+
+ else if (command.toLowerCase() === 'about'){
+                let msg = document.getElementById("text-to-about").value;
+
+                let speech = new SpeechSynthesisUtterance();
+                speech.lang = "en-US";
+
+                speech.text = msg;
+                speech.volume = 1;
+                speech.rate = 1;
+                speech.pitch = 1;
+
+                window.speechSynthesis.speak(speech);
+            }
+
+
+
+        };
+
+        recognition.onspeechend = function() {
+            recognition.stop();
+        };
+
+        recognition.onerror = function(event) {
+            message.textContent = 'Error occurred in recognition: ' + event.error;
+        }
+
+        document.querySelector('#btnGiveCommand').addEventListener('click', function(){
+            recognition.start();
+        });
+  function stoptext () {
+  document.getElementById("btnGiveCommand").innerHTML = "Stop";
+};
+
+
+    </script>
+</body>
+</html>

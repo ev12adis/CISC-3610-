@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="main.js"> </script>
+</head>
+<body onload="starter()">
+
+<h1>Lab 3 (by Evan Adis, evan.adis57@bcmail.cuny.edu)</h1>
+
+<form>
+  <label for="title">Title: </label>
+  <input type="text" id="title" name="title" maxlength="40" size= "33" oninput="saveTitle()"><br><br>
+  <label for="content">Note Content:</label> <br>
+  <textarea id="content" name="content" rows="10" cols="80" class="round" oninput="saveContent()"></textarea> <br>
+  <input type="button" value="Clear" onclick="clearText()">
+</form>
+<div class="weblink">
+  
+</div>
+</body>
+</html>

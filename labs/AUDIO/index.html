@@ -1,0 +1,152 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Lab Music Machine</title>
+<style>
+img {
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+}
+#rotate {
+    vertical-align: top;
+    transform: rotate(7deg);
+    -ms-transform: rotate(90deg); /* IE 9 */
+    -moz-transform: rotate(90deg); /* Firefox */
+    -webkit-transform: rotate(90deg); /* Safari and Chrome */
+    -o-transform: rotate(90deg); /* Opera */
+    position: absolute;
+    width: 270px;
+    height: 155px;
+    top: 643px;
+    left: 566px;
+    font-size: 22px;
+    background-color: transparent;
+    border: none;
+}
+#rotate1 {
+    vertical-align: top;
+    transform: rotate(7deg);
+    -ms-transform: rotate(90deg); /* IE 9 */
+    -moz-transform: rotate(90deg); /* Firefox */
+    -webkit-transform: rotate(90deg); /* Safari and Chrome */
+    -o-transform: rotate(90deg); /* Opera */
+    position: absolute;
+    width: 270px;
+    height: 155px;
+    top: 643px;
+    left: 739px;
+    font-size: 22px;
+    background-color: transparent;
+    border: none;
+}
+#rotate2 {
+    vertical-align: top;
+    transform: rotate(7deg);
+    -ms-transform: rotate(90deg); /* IE 9 */
+    -moz-transform: rotate(90deg); /* Firefox */
+    -webkit-transform: rotate(90deg); /* Safari and Chrome */
+    -o-transform: rotate(90deg); /* Opera */
+    position: absolute;
+    width: 270px;
+    height: 155px;
+    top: 643px;
+    left: 918px;
+    font-size: 22px;
+    background-color: transparent;
+    border: none;
+}
+#rotate3 {
+    vertical-align: top;
+    transform: rotate(7deg);
+    -ms-transform: rotate(90deg); /* IE 9 */
+    -moz-transform: rotate(90deg); /* Firefox */
+    -webkit-transform: rotate(90deg); /* Safari and Chrome */
+    -o-transform: rotate(90deg); /* Opera */
+    position: absolute;
+    width: 270px;
+    height: 155px;
+    top: 643px;
+    left: 1096px;
+    font-size: 22px;
+    background-color: transparent;
+    border: none;
+}
+#rotate4 {
+    vertical-align: top;
+    transform: rotate(7deg);
+    -ms-transform: rotate(90deg); /* IE 9 */
+    -moz-transform: rotate(90deg); /* Firefox */
+    -webkit-transform: rotate(90deg); /* Safari and Chrome */
+    -o-transform: rotate(90deg); /* Opera */
+    position: absolute;
+    width: 270px;
+    height: 155px;
+    top: 643px;
+    left: 1277px;
+    font-size: 22px;
+    background-color: transparent;
+    border: none;
+}
+</style>
+</head>
+
+<body>
+<audio id="myAudio">
+  <source src="audio/1.ogg" type="audio/ogg">
+  <source src="audio/1.mp3" type="audio/mpeg">
+  Your browser does not support the audio element. </audio>
+<audio id="myAudio1">
+  <source src="audio/2.ogg" type="audio/ogg">
+  <source src="audio/2.mp3" type="audio/mpeg">
+  Your browser does not support the audio element. </audio>
+<audio id="myAudio2">
+  <source src="audio/3.ogg" type="audio/ogg">
+  <source src="audio/3.mp3" type="audio/mpeg">
+  Your browser does not support the audio element. </audio>
+<audio id="myAudio3">
+  <source src="audio/4.ogg" type="audio/ogg">
+  <source src="audio/4.mp3" type="audio/mpeg">
+  Your browser does not support the audio element. </audio>
+<audio id="myAudio4">
+  <source src="audio/5.ogg" type="audio/ogg">
+  <source src="audio/5.mp3" type="audio/mpeg">
+  Your browser does not support the audio element. </audio>
+<img src="img/piano.jpg" width="1900" height="850" alt="piano">
+<button id="rotate" onclick="playAudio()" type="button">Press to Play Music</button>
+<button id="rotate1" onclick="playAudio1()" type="button">Press to Play Music</button>
+<button id="rotate2" onclick="playAudio2()" type="button">Press to Play Music</button>
+<button id="rotate3" onclick="playAudio3()" type="button">Press to Play Music</button>
+<button id="rotate4" onclick="playAudio4()" type="button">Press to Play Music</button>
+<script>
+var x = document.getElementById("myAudio");
+
+function playAudio() {
+  x.play();
+}
+
+var a = document.getElementById("myAudio1");
+
+function playAudio1() {
+  a.play();
+}
+var b = document.getElementById("myAudio2");
+
+function playAudio2() {
+  b.play();
+}
+var c = document.getElementById("myAudio3");
+
+function playAudio3() {
+  c.play();
+}
+var d = document.getElementById("myAudio4");
+
+function playAudio4() {
+  d.play();
+}
+	</script>
+    
+</body>
+</html>
